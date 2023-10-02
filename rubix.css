@@ -1,0 +1,142 @@
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background: radial-gradient(circle, white, rgba(0, 0, 0, 0.5));
+  background-color: #2F2F31;
+  background-blend-mode: overlay;
+}
+
+.text {
+  text-align: center;
+  font-family: Helvetica;
+  font-size: 0.8rem;
+  color: grey;
+  pointer-events: none;
+}
+
+.centered, .cube > .cubelet > .element > .sticker {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.scene {
+  width: 100%;
+  height: 100%;
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+.scene > .pivot {
+  width: 0;
+  height: 0;
+  transition: 0.18s;
+}
+.scene .anchor {
+  width: 2em;
+  height: 6em;
+}
+.scene div {
+  position: absolute;
+  transform-style: inherit;
+}
+
+.cube {
+  font-size: 190%;
+  margin-left: -1em;
+  margin-top: -1em;
+}
+.cube > .cubelet {
+  width: 1.9em;
+  height: 1.9em;
+}
+.cube > .cubelet > .element {
+  width: 100%;
+  height: 100%;
+  background: #0A0A0A;
+  outline: 1px solid transparent;
+  border: 0.05em solid #0A0A0A;
+  border-radius: 10%;
+}
+.cube > .cubelet > .element.back {
+  transform: rotateX(0deg) rotateY(-90deg) rotateZ(180deg) translateZ(1em);
+}
+.cube > .cubelet > .element.front {
+  transform: rotateX(0deg) rotateY(90deg) rotateZ(90deg) translateZ(1em);
+}
+.cube > .cubelet > .element.right {
+  transform: rotateX(0deg) rotateY(180deg) rotateZ(-90deg) translateZ(1em);
+}
+.cube > .cubelet > .element.left {
+  transform: rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(1em);
+}
+.cube > .cubelet > .element.down {
+  transform: rotateX(0deg) rotateX(-90deg) rotateY(0deg) rotateZ(-90deg) translateZ(1em);
+}
+.cube > .cubelet > .element.up {
+  transform: rotateX(0deg) rotateX(90deg) rotateY(0deg) rotateZ(180deg) translateZ(1em);
+}
+.cube > .cubelet > .element > .sticker {
+  transform: rotateX(0deg) translateZ(2px);
+  width: 95%;
+  height: 95%;
+  border-radius: 10%;
+  outline: 1px solid transparent;
+  box-shadow: inset 0.05em 0.05em 0.2rem 0 rgba(255, 255, 255, 0.25), inset -0.05em -0.05em 0.2rem 0 rgba(0, 0, 0, 0.25);
+}
+.cube > .cubelet > .element > .sticker.blue, .sticker.blue {
+  background-color: #001ca8;
+}
+.cube > .cubelet > .element > .sticker.green, .sticker.green {
+  background-color: #006E16;
+}
+.cube > .cubelet > .element > .sticker.white, .sticker.white {
+  background-color: #DDD;
+}
+.cube > .cubelet > .element > .sticker.yellow, .sticker.yellow {
+  background-color: #E0AE00;
+}
+.cube > .cubelet > .element > .sticker.orange, .sticker.orange {
+  background-color: #FF5000;
+}
+.cube > .cubelet > .element > .sticker.red, .sticker.red {
+  background-color: #DF0500;
+}
+
+.center-center {
+  display: none;
+}
+
+.actions {
+  position: absolute;
+  top: 1em;
+  left: 1em;
+  z-index: 1;
+}
+
+.actions input {
+  font-size: 20pt;
+}
+
+.actions .row input {
+  width: 2em;
+  height: 2em;
+}
+
+.facelet-view {
+  position: absolute;
+  left: 35em;
+  top: 1em;
+}
+
+.facelet-view .sticker {
+  height: 20px;
+  width: 20px;
+}
+
+.facelet-view td {
+  margin: 0;
+  padding: 0;
+}

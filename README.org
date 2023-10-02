@@ -1,0 +1,179 @@
+#+TITLE: Rubix cube
+#+AUTHOR: Cameron Zemek
+#+DESCRIPTION: Rubix cube in web browser
+#+KEYWORDS: rubix cube, javascript, html
+#+LANGUAGE: en
+
+* Overview
+A rubix cube has six faces: Front (F), Back (B), Right (R), Left (L), Down (D),
+Up (U).
+
+#+BEGIN_EXAMPLE
+        B
+     _______
+    /      /|
+   /  U   / |
+L /______/  | R
+  |      |  /
+  |  F   | /
+  |______|/
+
+      D
+#+END_EXAMPLE
+
+Each face is a grid of 3x3 cubes. We refer to each face on a cube as a facelet.
+In 3D coordinates (x, y, z) the top left cube is (0, 0, 0).
+
+Unfold the cube into 2D representation as follows:
+
+#+BEGIN_EXAMPLE
+  U
+L F R B
+  D
+#+END_EXAMPLE
+
+Then number the facelets as follows:
+
+#+BEGIN_EXAMPLE
+          00 01 02
+          03 04 05
+          06 07 08
+
+09 10 11  18 19 20  27 28 29  36 37 38
+12 13 14  21 22 23  30 31 32  39 40 41
+15 16 17  24 25 26  33 34 35  42 43 44
+
+          45 46 47
+          48 49 50
+          51 52 53
+#+END_EXAMPLE
+
+Starting from top-left cube facing the front face. Going left to right, top to
+bottom and front to back we number the cubes starting from 1.
+
+#+BEGIN_EXAMPLE
+Front:
+01 02 03
+04 05 06
+07 08 09
+
+Middle:
+10 11 12
+13    14
+15 16 17
+
+Back:
+18 19 20
+21 22 23
+24 25 26
+#+END_EXAMPLE
+
+* Moves
+Moves are clockwise when looking at the face. Moves are marked with ' suffix for
+counter clockwise rotation. Moves are:
+- L :: Left face
+- R :: Right face
+- U :: Up face
+- D :: Down face
+- F :: Front face
+- B :: Back face
+- M :: Layer between L and R, turn direction same as L
+- E :: Layer between U and D, turn direction same as D
+- S :: Layer between F and B, turn direction same as F
+- X :: Entire cube, turn direction same as R
+- Y :: Entire cube, turn direction same as U
+- Z :: Entire cube, turn direction same as F
+- u :: Top two layers
+- d :: Bottom two layers
+- r :: Right two layers
+- l :: Left two layers
+- f :: Front two layers
+- b :: Back two layers
+
+* Solve
+1) Daisy. Start with yellow center on top. Form a daisy by bring the white edges
+   to top. That is looking at top face:
+   #+BEGIN_EXAMPLE
+   x W x
+   W Y W
+   x W x
+   #+END_EXAMPLE
+2) White cross. Match the corresponding edge of the white edge with its matching
+   center color. Turn that face 180 degrees. Repeat for all the white petals of
+   the daisy. Now on the bottom should have a white cross.
+3) White corners. Place a corner with white in the top-right-front position with
+   its matching colors on the front and right face centers. For example, for the
+   corner with White/Green/Orange have the front face with green center and
+   right face with orange center. Then repeat the move combination (called sexy
+   move) R U R' U' until the white face is facing downwards. Repeat for all
+   white corners. After this step the bottom layer is complete.
+4) Second layer. For this step you need to place the 4 edge pieces for the
+   second layer into the correct position. For example, the Green/Orange edge
+   piece between the orange and green centers. Match the outward facing edge
+   with its matching center color. Rotate cube so this center is the front face.
+   For example, if the top edge is Orange then the outward edge would be green
+   and so we match the green edge with the green center. Look at the top edge
+   and determine if the matching center color is on the left or right face. If
+   on right perform the move U R U' R' U' F' U F otherwise U' L' U L U F U'
+   F'
+5) Yellow cross. In this step we create a yellow cross on top face:
+   #+BEGIN_EXAMPLE
+   x Y x
+   Y Y Y
+   x Y x
+   #+END_EXAMPLE
+   There are 3 possible states to get to yellow state:
+   1) dot
+      #+BEGIN_EXAMPLE
+      x x x
+      x Y x
+      x x x
+      #+END_EXAMPLE
+   2) L (align with edges in 9 and 12 oclock position)
+      #+BEGIN_EXAMPLE
+      x Y x
+      Y Y x
+      x x x
+      #+END_EXAMPLE
+   3) Line (align in horizontal position)
+      #+BEGIN_EXAMPLE
+      x x x
+      Y Y Y
+      x x x
+      #+END_EXAMPLE
+   Perform the combation move F U R U' R' F' until you form yellow cross.
+6) Yellow face. If there is one yellow corner align like so:
+   #+BEGIN_EXAMPLE
+   x Y x
+   Y Y Y
+   Y Y x
+   #+END_EXAMPLE
+   Otherwise position a yellow outward facing corner on top left:
+   #+BEGIN_EXAMPLE
+     x Y x
+     Y Y Y
+   Y x Y x
+   #+END_EXAMPLE
+   Perform the combination move R U R' U R U2 R'
+7) Orient yellow corners. We can swap the 2 right corners:
+   #+BEGIN_EXAMPLE
+   x x A
+   x x x
+   x x B
+   #+END_EXAMPLE
+   by using the combination move L' U R U' L U2 R' U R U2 R'
+8) Orient yellow edges. If one of the faces is complete make this face the back
+   face. Looking at the edges you will need to either turn:
+   1) Clockwise: F2 U R' L F2 L' R U F2
+   2) Counterclockwise: F2 U' R' L F2 L' R U' F2
+   If no face is complete perform either of the above to complete a face, then
+   repeat this step.
+9) Congratulations your rubix cube is now solved.
+
+* Implementation
+The rubix cube is rendered using HTML elements with each cube being an element
+containing 6 children elements for each face of the cube. jQuery is used the
+manipulate the DOM to perform the rubix cube moves.
+
+jQuery returns elements in DOM order. Therefore the cube is arranged in left to
+right, top to bottom, and back to front order.

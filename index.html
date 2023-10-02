@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Rubix Cube</title>
+    <link rel="stylesheet" href="rubix.css" type="text/css" media="screen" />
+  </head>
+  <body>
+    <div class="actions">
+      <div class="row">
+        <input type="button" value="U">
+        <input type="button" value="R">
+        <input type="button" value="F">
+        <input type="button" value="L">
+        <input type="button" value="D">
+        <input type="button" value="B">
+        <input type="button" value="X">
+        <input type="button" value="Y">
+        <input type="button" value="Z">
+      </div>
+      <div class="row">
+        <input type="button" value="U'">
+        <input type="button" value="R'">
+        <input type="button" value="F'">
+        <input type="button" value="L'">
+        <input type="button" value="D'">
+        <input type="button" value="B'">
+        <input type="button" value="X'">
+        <input type="button" value="Y'">
+        <input type="button" value="Z'">
+      </div>
+      <div class="row">
+        <input type="button" value="U2">
+        <input type="button" value="R2">
+        <input type="button" value="F2">
+        <input type="button" value="L2">
+        <input type="button" value="D2">
+        <input type="button" value="B2">
+        <input type="button" value="X2">
+        <input type="button" value="Y2">
+        <input type="button" value="Z2">
+      </div>
+      <div class="row">
+        <input type="button" value="u">
+        <input type="button" value="r">
+        <input type="button" value="f">
+        <input type="button" value="l">
+        <input type="button" value="d">
+        <input type="button" value="b">
+        <input type="button" value="M">
+        <input type="button" value="E">
+        <input type="button" value="S">
+      </div>
+      <div class="row">
+        <input type="button" value="u'">
+        <input type="button" value="r'">
+        <input type="button" value="f'">
+        <input type="button" value="l'">
+        <input type="button" value="d'">
+        <input type="button" value="b'">
+        <input type="button" value="M'">
+        <input type="button" value="E'">
+        <input type="button" value="S'">
+      </div>
+      <div class="misc">
+        <input class="scramble" type="button" value="scramble">
+        <input class="reset" type="button" value="reset">
+      </div>
+    </div>
+    <table class="facelet-view">
+        <tr>
+            <td colspan="3"></td>
+            <td class="u1"><div class="sticker yellow"></div></td>
+            <td class="u2"><div class="sticker yellow"></div></td>
+            <td class="u3"><div class="sticker yellow"></div></td>
+        </tr>
+        <tr>
+            <td colspan="3"></td>
+            <td class="u4"><div class="sticker yellow"></div></td>
+            <td class="u5"><div class="sticker yellow"></div></td>
+            <td class="u6"><div class="sticker yellow"></div></td>
+        </tr>
+        <tr>
+            <td colspan="3"></td>
+            <td class="u7"><div class="sticker yellow"></div></td>
+            <td class="u8"><div class="sticker yellow"></div></td>
+            <td class="u9"><div class="sticker yellow"></div></td>
+        </tr>
+        <tr>
+            <td class="l1"><div class="sticker red"></div></td>
+            <td class="l2"><div class="sticker red"></div></td>
+            <td class="l3"><div class="sticker red"></div></td>
+            <td class="f1"><div class="sticker green"></div></td>
+            <td class="f2"><div class="sticker green"></div></td>
+            <td class="f3"><div class="sticker green"></div></td>
+            <td class="r1"><div class="sticker orange"></div></td>
+            <td class="r2"><div class="sticker orange"></div></td>
+            <td class="r3"><div class="sticker orange"></div></td>
+            <td class="b1"><div class="sticker blue"></div></td>
+            <td class="b2"><div class="sticker blue"></div></td>
+            <td class="b3"><div class="sticker blue"></div></td>
+        </tr>
+        <tr>
+            <td class="l4"><div class="sticker red"></div></td>
+            <td class="l5"><div class="sticker red"></div></td>
+            <td class="l6"><div class="sticker red"></div></td>
+            <td class="f4"><div class="sticker green"></div></td>
+            <td class="f5"><div class="sticker green"></div></td>
+            <td class="f6"><div class="sticker green"></div></td>
+            <td class="r4"><div class="sticker orange"></div></td>
+            <td class="r5"><div class="sticker orange"></div></td>
+            <td class="r6"><div class="sticker orange"></div></td>
+            <td class="b4"><div class="sticker blue"></div></td>
+            <td class="b5"><div class="sticker blue"></div></td>
+            <td class="b6"><div class="sticker blue"></div></td>
+        </tr>
+        <tr>
+            <td class="l7"><div class="sticker red"></div></td>
+            <td class="l8"><div class="sticker red"></div></td>
+            <td class="l9"><div class="sticker red"></div></td>
+            <td class="f7"><div class="sticker green"></div></td>
+            <td class="f8"><div class="sticker green"></div></td>
+            <td class="f9"><div class="sticker green"></div></td>
+            <td class="r7"><div class="sticker orange"></div></td>
+            <td class="r8"><div class="sticker orange"></div></td>
+            <td class="r9"><div class="sticker orange"></div></td>
+            <td class="b7"><div class="sticker blue"></div></td>
+            <td class="b8"><div class="sticker blue"></div></td>
+            <td class="b9"><div class="sticker blue"></div></td>
+        </tr>
+        <tr>
+            <td colspan="3"></td>
+            <td class="d1"><div class="sticker white"></div></td>
+            <td class="d2"><div class="sticker white"></div></td>
+            <td class="d3"><div class="sticker white"></div></td>
+        </tr>
+        <tr>
+            <td colspan="3"></td>
+            <td class="d4"><div class="sticker white"></div></td>
+            <td class="d5"><div class="sticker white"></div></td>
+            <td class="d6"><div class="sticker white"></div></td>
+        </tr>
+        <tr>
+            <td colspan="3"></td>
+            <td class="d7"><div class="sticker white"></div></td>
+            <td class="d8"><div class="sticker white"></div></td>
+            <td class="d9"><div class="sticker white"></div></td>
+        </tr>
+    </table>
+    <div class="scene">
+      <div class="pivot centered" style="transform: rotateX(-25deg) rotateY(-120deg);">
+        <div class="cube">
+          <div class="cubelet corner up left back x0 y0 z2 cubelet18" style="transform: rotateX(0deg) translateY(-2em) translateZ(2em) translateX(-2em);">
+            <div class="element up facelet u1"><div class="sticker yellow"></div></div>
+            <div class="element left facelet l1"><div class="sticker red"></div></div>
+            <div class="element front"></div>
+            <div class="element right"></div>
+            <div class="element back facelet b3"><div class="sticker blue"></div></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet edge up back x1 y0 z2 cubelet19" style="transform: rotateX(0deg) translateX(-2em) translateY(-2em);">
+            <div class="element up facelet u2"><div class="sticker yellow"></div></div>
+            <div class="element left"></div>
+            <div class="element front"></div>
+            <div class="element right"></div>
+            <div class="element back facelet b2"><div class="sticker blue"></div></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet corner up right back x2 y0 z2 cubelet20" style="transform: rotateX(0deg) translateX(-2em) translateY(-2em) translateZ(-2em);">
+            <div class="element up facelet u3"><div class="sticker yellow"></div></div>
+            <div class="element left"></div>
+            <div class="element front"></div>
+            <div class="element right facelet r3"><div class="sticker orange"></div></div>
+            <div class="element back facelet b1"><div class="sticker blue"></div></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet edge left back x0 y1 z2 cubelet21" style="transform: rotateX(0deg) translateZ(2em) translateX(-2em);">
+            <div class="element up"></div>
+            <div class="element left facelet l4"><div class="sticker red"></div></div>
+            <div class="element front"></div>
+            <div class="element right"></div>
+            <div class="element back facelet b6"><div class="sticker blue"></div></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet center back x1 y1 z2 cubelet22" style="transform: rotateX(0deg) translateX(-2em);">
+            <div class="element up"></div>
+            <div class="element left"></div>
+            <div class="element front"></div>
+            <div class="element right"></div>
+            <div class="element back facelet b5"><div class="sticker blue"></div></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet edge right back x2 y1 z2 cubelet23" style="transform: rotateX(0deg) translateZ(-2em) translateX(-2em);">
+            <div class="element up"></div>
+            <div class="element left"></div>
+            <div class="element front"></div>
+            <div class="element right facelet r6"><div class="sticker orange"></div></div>
+            <div class="element back facelet b4"><div class="sticker blue"></div></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet corner left back down x0 y2 z2 cubelet24" style="transform: rotateX(0deg) translateX(-2em) translateY(2em) translateZ(2em);">
+            <div class="element up"></div>
+            <div class="element left facelet l7"><div class="sticker red"></div></div>
+            <div class="element front"></div>
+            <div class="element right"></div>
+            <div class="element back facelet b9"><div class="sticker blue"></div></div>
+            <div class="element down facelet d7"><div class="sticker white"></div></div>
+          </div>
+          <div class="cubelet edge back down x1 y2 z2 cubelet25" style="transform: rotateX(0deg) translateX(-2em) translateY(2em);">
+            <div class="element up"></div>
+            <div class="element left"></div>
+            <div class="element front"></div>
+            <div class="element right"></div>
+            <div class="element back facelet b8"><div class="sticker blue"></div></div>
+            <div class="element down facelet d8"><div class="sticker white"></div></div>
+          </div>
+          <div class="cubelet corner right back down x2 y2 z2 cubelet26" style="transform: rotateX(0deg) translateZ(-2em) translateX(-2em) translateY(2em);">
+            <div class="element up"></div>
+            <div class="element left"></div>
+            <div class="element front"></div>
+            <div class="element right facelet r9"><div class="sticker orange"></div></div>
+            <div class="element back facelet b7"><div class="sticker blue"></div></div>
+            <div class="element down facelet d9"><div class="sticker white"></div></div>
+          </div>
+          <div class="cubelet edge up left x0 y0 z1 cubelet10" style="transform: rotateX(0deg) translateY(-2em) translateZ(2em);">
+            <div class="element up facelet u4"><div class="sticker yellow"></div></div>
+            <div class="element left facelet l2"><div class="sticker red"></div></div>
+            <div class="element front"></div>
+            <div class="element right"></div>
+            <div class="element back"></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet center up x1 y0 z1 cubelet11" style="transform: rotateX(0deg) translateY(-2em);">
+            <div class="element up facelet u5"><div class="sticker yellow"></div></div>
+            <div class="element left"></div>
+            <div class="element front"></div>
+            <div class="element right"></div>
+            <div class="element back"></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet edge up right x2 y0 z1 cubelet12" style="transform: rotateX(0deg) translateY(-2em) translateZ(-2em);">
+            <div class="element up facelet u6"><div class="sticker yellow"></div></div>
+            <div class="element left"></div>
+            <div class="element front"></div>
+            <div class="element right facelet r2"><div class="sticker orange"></div></div>
+            <div class="element back"></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet center left x0 y1 z1 cubelet13" style="transform: rotateX(0deg) translateZ(2em);">
+            <div class="element up"></div>
+            <div class="element left facelet l5"><div class="sticker red"></div></div>
+            <div class="element front"></div>
+            <div class="element right"></div>
+            <div class="element back"></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet x1 y1 z1 center-center">
+            <div class="element up"></div>
+            <div class="element left"></div>
+            <div class="element front"></div>
+            <div class="element right"></div>
+            <div class="element back"></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet center right x2 y1 z1 cubelet14" style="transform: rotateX(0deg) translateZ(-2em);">
+            <div class="element up"></div>
+            <div class="element left"></div>
+            <div class="element front"></div>
+            <div class="element right facelet r5"><div class="sticker orange"></div></div>
+            <div class="element back"></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet edge left down x0 y2 z1 cubelet15" style="transform: rotateX(0deg) translateY(2em) translateZ(2em);">
+            <div class="element up"></div>
+            <div class="element left facelet l8"><div class="sticker red"></div></div>
+            <div class="element front"></div>
+            <div class="element right"></div>
+            <div class="element back"></div>
+            <div class="element down facelet d4"><div class="sticker white"></div></div>
+          </div>
+          <div class="cubelet center down x1 y2 z1 cubelet16" style="transform: rotateX(0deg) translateY(2em);">
+            <div class="element up"></div>
+            <div class="element left"></div>
+            <div class="element front"></div>
+            <div class="element right"></div>
+            <div class="element back"></div>
+            <div class="element down facelet d5"><div class="sticker white"></div></div>
+          </div>
+          <div class="cubelet edge right down x2 y2 z1 cubelet17" style="transform: rotateX(0deg) translateY(2em) translateZ(-2em);">
+            <div class="element up"></div>
+            <div class="element left"></div>
+            <div class="element front"></div>
+            <div class="element right facelet r8"><div class="sticker orange"></div></div>
+            <div class="element back"></div>
+            <div class="element down facelet d6"><div class="sticker white"></div></div>
+          </div>
+          <div class="cubelet corner up left front x0 y0 z0 cubelet1" style="transform: rotateX(0deg) translateZ(2em) translateX(2em) translateY(-2em);">
+            <div class="element up facelet u7"><div class="sticker yellow"></div></div>
+            <div class="element left facelet l3"><div class="sticker red"></div></div>
+            <div class="element front facelet f1"><div class="sticker green"></div></div>
+            <div class="element right"></div>
+            <div class="element back"></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet edge up front x1 y0 z0 cubelet2" style="transform: rotateX(0deg) translateX(2em) translateY(-2em);">
+            <div class="element up facelet u8"><div class="sticker yellow"></div></div>
+            <div class="element left"></div>
+            <div class="element front facelet f2"><div class="sticker green"></div></div>
+            <div class="element right"></div>
+            <div class="element back"></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet corner up front right x2 y0 z0 cubelet3" style="transform: rotateX(0deg) translateX(2em) translateY(-2em) translateZ(-2em);">
+            <div class="element up facelet u9"><div class="sticker yellow"></div></div>
+            <div class="element left"></div>
+            <div class="element front facelet f3"><div class="sticker green"></div></div>
+            <div class="element right facelet r1"><div class="sticker orange"></div></div>
+            <div class="element back"></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet edge left front x0 y1 z0 cubelet4" style="transform: rotateX(0deg) translateZ(2em) translateX(2em);">
+            <div class="element up"></div>
+            <div class="element left facelet l6"><div class="sticker red"></div></div>
+            <div class="element front facelet f4"><div class="sticker green"></div></div>
+            <div class="element right"></div>
+            <div class="element back"></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet center front x1 y1 z0 cubelet5" style="transform: rotateX(0deg) translateX(2em);">
+            <div class="element up"></div>
+            <div class="element left"></div>
+            <div class="element front facelet f5"><div class="sticker green"></div></div>
+            <div class="element right"></div>
+            <div class="element back"></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet edge front right x2 y1 z0 cubelet6" style="transform: rotateX(0deg) translateZ(-2em) translateX(2em);">
+            <div class="element up"></div>
+            <div class="element left"></div>
+            <div class="element front facelet f6"><div class="sticker green"></div></div>
+            <div class="element right facelet r4"><div class="sticker orange"></div></div>
+            <div class="element back"></div>
+            <div class="element down"></div>
+          </div>
+          <div class="cubelet corner left front down x0 y2 z0 cubelet7" style="transform: rotateX(0deg) translateX(2em) translateY(2em) translateZ(2em);">
+            <div class="element up"></div>
+            <div class="element left facelet l9"><div class="sticker red"></div></div>
+            <div class="element front facelet f7"><div class="sticker green"></div></div>
+            <div class="element right"></div>
+            <div class="element back"></div>
+            <div class="element down facelet d1"><div class="sticker white"></div></div>
+          </div>
+          <div class="cubelet edge front down x1 y2 z0 cubelet8" style="transform: rotateX(0deg) translateX(2em) translateY(2em);">
+            <div class="element up"></div>
+            <div class="element left"></div>
+            <div class="element front facelet f8"><div class="sticker green"></div></div>
+            <div class="element right"></div>
+            <div class="element back"></div>
+            <div class="element down facelet d2"><div class="sticker white"></div></div>
+          </div>
+          <div class="cubelet corner front right down x2 y2 z0 cubelet9" style="transform: rotateX(0deg) translateY(2em) translateZ(-2em) translateX(2em);">
+            <div class="element up"></div>
+            <div class="element left"></div>
+            <div class="element front facelet f9"><div class="sticker green"></div></div>
+            <div class="element right facelet r7"><div class="sticker orange"></div></div>
+            <div class="element back"></div>
+            <div class="element down facelet d3"><div class="sticker white"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="rubix.js"></script>
+  </body>
+</html>
